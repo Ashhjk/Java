@@ -1,0 +1,8 @@
+Java extension is .java
+if we need to print something we need method in java. Here print is a method.Use colon after every statement
+System.out.println("Hello World");
+
+JVM
+for running java we need jvm java virtual machine irrespective of the os ios windows etc.no jvm means we cant run.We have os on hardware. JVM execute java code we create.JVm undestands only byte code which is not readable by humans.so we neeed a compiler to convert the java code we write to a bytecode.Our code can be many files. out of all these files if we have to run first file then the first file need to have main method.Exexution start from the file we specify which has the main.
+MAIN
+ Main starts with public static void main.
