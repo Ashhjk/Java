@@ -1,8 +1,56 @@
 Java extension is .java
 if we need to print something we need method in java. Here print is a method.Use colon after every statement
 System.out.println("Hello World");
+bytecode has extension .class
 
-JVM
+---WORA
+Java is a Write Once Run Anywhere.once we write code in our machine it can be run in any machine having the jre and jvm
+
+---JVM
 for running java we need jvm java virtual machine irrespective of the os ios windows etc.no jvm means we cant run.We have os on hardware. JVM execute java code we create.JVm undestands only byte code which is not readable by humans.so we neeed a compiler to convert the java code we write to a bytecode.Our code can be many files. out of all these files if we have to run first file then the first file need to have main method.Exexution start from the file we specify which has the main.
-MAIN
- Main starts with public static void main.
+
+---JRE
+jvm alone is not enough to run a java program.we need a lot of libraries also...jvm along with libraries gives jre or java runtime environment.
+
+---JDK
+stands for java development kit.Jdk will have jre and jre will have jvm.Developersv install jdk.
+
+---MAIN
+main comes with public static void main(arguments).
+Also we need to have a class.Main should come inside the class.In java we cfeate everything as class and objects.
+eg:
+public class javatutorial
+{
+    public static void main(String a[])
+    {
+        System.out.println("Hello world");
+    }
+}
+---println
+when we use println after printing the statement the cursoor move to next line...if we use print cursor stays there itself so next statement also will be printed in the same line
+
+
+---DATATYPES
+boolean    bool b =true;                 true and false..used for conditions
+char    char c = 'k';     use single quotes..accepts pnly single alphabet
+int                       negative and positive numbers
+short
+byte                      -128 to 127
+long        long num = 5643l    put l after the number
+float       float num = 5.6f   -we have to explicitly mention it
+double      double num = 5.6    more precision
+
+int num1=4;
+datatype first then variable name
+
+public class javatutorial
+{
+    public static void main(String a[])
+    {
+        int num1=9;
+        int num2=1;
+        int result= num1+num2;
+        System.out.println(result);
+      
+    }
+}
