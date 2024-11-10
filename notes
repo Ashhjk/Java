@@ -31,8 +31,8 @@ when we use println after printing the statement the cursoor move to next line..
 
 
 ---DATATYPES
-boolean    bool b =true;                 true and false..used for conditions
-char    char c = 'k';     use single quotes..accepts pnly single alphabet
+boolean    boolean b =true;                 true and false..used for conditions
+char    char c = 'k';     use single quotes..accepts only single alphabet or single digit number ..'5'
 int                       negative and positive numbers
 short
 byte                      -128 to 127
@@ -54,3 +54,39 @@ public class javatutorial
       
     }
 }
+
+---LITERALS
+literals are fixed values that are used directly in the code to represent data.
+Integer Literals: Whole numbers, written in decimal, hexadecimal (e.g., 0x1A), octal (e.g., 012), or binary (e.g., 0b101).
+Floating-Point Literals: Real numbers, written as decimals or in scientific notation (e.g., 3.14, 1.23e4).
+Character Literals: Single characters enclosed in single quotes (e.g., 'A', '1').
+String Literals: Sequences of characters enclosed in double quotes (e.g., "Hello, World!").
+Boolean Literals: Represent true or false.
+Null Literal: Represents a null reference, indicating the absence of an object.
+
+---IMPLCIT CONVERSION(TYPE CONVERSION)
+Suppose we have byte b = 126 and int a = 256...we know that byte can only store upto 127 ...when we assign b=a ..it cant but we can assign a=b;
+a=b assignment is called implicit type conversion
+
+---EXPLICIT TYPE CONVERSION(CASTING)
+WE NEED TO CHANGE THE DATATYPE TO ACCOMODATE THEM
+eg:
+public class javatutorial
+{
+    public static void main(String a[])
+    {
+        byte num1=126;
+        int num2=257;
+        num1= (byte)num2;
+        System.out.println(num1);
+
+    }
+}
+
+while converting int to byte modulus is taken. means the remainder after dividing 257 with 256 is done ...means output will be 1.
+
+another example 
+
+float f=5.6f;
+int x= (int)f;
+this works.
