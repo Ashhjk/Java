@@ -88,5 +88,61 @@ while converting int to byte modulus is taken. means the remainder after dividin
 another example 
 
 float f=5.6f;
-int x= (int)f;
+int x= (int)f;                     Output :5
 this works.
+
+---TYPE PROMOTION
+EG:
+byte b=10;
+byte c=30;
+int result = b*c;
+Here after multiplication the result is 300.even it was the result of multiplication of bytes it is out of range...so store them in int.
+
+---ARITHMETIC OPERATORS
+addition +
+substraction -
+multiplication *
+division /            give quotient only
+modulus %             give reminder
+post increment num++
+pre increment  ++num
+postdecrement num--
+pre decrement --num
+
+
+eg:
+int num1 = 7;
+int result= num1 +1;
+System.out.println(result);                           output:8
+
+eg:
+int num1 = 7;
+num1++;
+System.out.println(num1);                            output:8
+
+
+eg:
+num--;
+
+---RELATIONAL OPERATORS
+less than       <
+greater than    >
+equal to        =       assignment operator
+comparison      ==
+not equal       !=
+                >=
+                <=
+
+---LOGICAL OPERATORS
+and        &
+or         |
+not       !
+short circuit and    &&
+short circuit or     ||
+
+eg:
+r= x>y && a<b
+If first one is false then it won't look the second thing.similarly for || also.if first one is true it immediately give the output true.
+eg:
+s= !r
+if r is true s is false
