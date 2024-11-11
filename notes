@@ -146,3 +146,133 @@ If first one is false then it won't look the second thing.similarly for || also.
 eg:
 s= !r
 if r is true s is false
+eg:
+public class javatutorial
+{
+    public static void main(String a[])
+    {
+        int c=2;
+        int b=3;
+        boolean result= c>b;
+        System.out.println(result);
+
+    }
+}
+output is false.
+
+---CONDITIONAL STATEMENTS
+
+----IF ELSE
+
+eg:
+public class javatutorial
+{
+    public static void main(String a[])
+    {
+        int c=2;
+        //int b=3;
+       if(c>7)
+        System.out.println("Hello");
+       else
+           System.out.println("bye");
+
+    }
+}
+
+eg:
+public class javatutorial
+{
+    public static void main(String a[])
+    {
+        int c=2;
+        //int b=3;
+       if(c>7)
+       {
+        System.out.println("Hello");                   ----if multiple statements then use bracket
+        System.out.println("thank");
+        }
+       else
+           System.out.println("bye");
+
+    }
+}
+
+---IF ELSE IF
+EG:
+public class javatutorial
+{
+    public static void main(String a[])
+    {
+        int c=2;
+        int b=3;
+       if(c>7)
+        System.out.println("Hello");                    
+       else if(condition)
+           System.out.println("bye");
+       else
+           System.out.println("bye");
+    }
+}
+
+---TERNARY OPERATOR/CONDITIONAL OPERATOR
+
+public class javatutorial
+{
+    public static void main(String a[])
+    {
+        int c=2;
+        int result;
+        result=c>3? 10:20;
+            System.out.println(result);                   
+
+
+    }
+}
+
+---SWITCH STATEMENT
+
+public class javatutorial
+{
+    public static void main(String a[])
+    {
+        int n=3;
+        switch(n)
+        {
+            case 1:
+                System.out.println("monday");
+                break;
+            case 2:
+                System.out.println("tuesday");
+                break;
+            case 3:
+                System.out.println("wednesday");
+                break;
+
+        }
+    }
+}
+
+OUTPUT: WEDNESDAY
+
+eg:
+new switch statement allows to use string also as cases.earlier it was only numbers.if not any of the cases then it executes default
+public class javatutorial
+{
+    public static void main(String a[])
+    {
+        String day="friday";
+        switch(day)
+        {
+            case "monday","tuesday":
+                System.out.println("6am");
+                break;
+            case "wednesday":
+                System.out.println("7am");
+                break;
+            default:
+                System.out.println("8am");
+                break;
+
+        }
+    }
+}
