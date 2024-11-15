@@ -276,3 +276,72 @@ public class javatutorial
         }
     }
 }
+
+----WHILE LOOP
+public class javatutorial
+{
+    public static void main(String a[])
+    {
+        int i=1;
+        while(i<5) {
+            System.out.println("result");
+            i++;
+        }
+    }
+}
+
+suppose for every result we have to print hi 3 times
+public class javatutorial
+{
+    public static void main(String a[])
+    {
+        int i=1;
+        while(i<5) {
+            System.out.println("result");
+            int j = 1;
+            while (j <= 3) {
+                System.out.println("hi");
+                j++;
+            }
+            i++;
+        }
+    }
+}
+
+----DO WHILE LOOP
+
+eg:
+public class javatutorial
+{
+    public static void main(String a[])
+    {
+        int i=1;
+        do{
+            System.out.println("result");
+            i++;
+           }while(i<3);
+    }
+}
+
+----FOR LOOP
+
+public class javatutorial
+{
+    public static void main(String a[])
+    {
+        int i;
+        for(i=0;i<=4;i++)
+        {
+            System.out.println("result");
+
+        }
+    }
+}
+
+---CLASS AND OBJECT THEORY IN JAVA
+in java everythig around is considered as an object.Class is like a blueprint.We create objects using that.Objects differ each other.Object will have a property and behaviour.human sare objects and has property like know how to dance walk etc...also everyone walk differently thats the behaviour. Carpenter creates a table(object) we need to give the blueprint or design specs to him...so as it is technical we give the details to a person and he explains technically to the carpenter .similarly we create a class file in programming that act as a bleprint for the carpenter to create the object.we create a classfile it is converted to byte code after compilation then goes to jvm and then get object.
+- inside class we write variables(properties)and write methods(functions).
+
+---METHODS/FUNCTIONS
+methods start with how we can access them,public means we can access them anywhere.after a method perform operations we have to specify the result and also along with its datatype.
+public int add          for a calculator
