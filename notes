@@ -338,10 +338,141 @@ public class javatutorial
     }
 }
 
+
 ---CLASS AND OBJECT THEORY IN JAVA
-in java everythig around is considered as an object.Class is like a blueprint.We create objects using that.Objects differ each other.Object will have a property and behaviour.human sare objects and has property like know how to dance walk etc...also everyone walk differently thats the behaviour. Carpenter creates a table(object) we need to give the blueprint or design specs to him...so as it is technical we give the details to a person and he explains technically to the carpenter .similarly we create a class file in programming that act as a bleprint for the carpenter to create the object.we create a classfile it is converted to byte code after compilation then goes to jvm and then get object.
+
+in java everything around is considered as an object.Class is like a blueprint.We create objects using that.Objects differ each other.Object will have a property and behaviour.human sare objects and has property like know how to dance walk etc...also everyone walk differently thats the behaviour. Carpenter creates a table(object) we need to give the blueprint or design specs to him...so as it is technical we give the details to a person and he explains technically to the carpenter .similarly we create a class file in programming that act as a bleprint for the carpenter to create the object.we create a classfile it is converted to byte code after compilation then goes to jvm and then get object.
 - inside class we write variables(properties)and write methods(functions).
+-then we create another class to create objects using keyword new.
+-then values are assigned to variables
+-we can call the function also if  it is already created in the class
 
 ---METHODS/FUNCTIONS
 methods start with how we can access them,public means we can access them anywhere.after a method perform operations we have to specify the result and also along with its datatype.
 public int add          for a calculator
+
+
+eg:
+class Sample {
+    int a;                   
+    int b;
+                               //initialised two variables a and b, also defined a function display which displays the value of a.
+    void display()
+    {
+        System.out.println(a);
+    }
+}
+class Hello {
+    public static void main(String[] ar) {
+        Sample s1 = new Sample();                       //created two objects s1 and s2.
+        Sample s2 = new Sample();
+        s1.a = 10;                                         // assigned values to the variables of that particular object
+        s1.b = 20;
+        s2.a = 30;
+        s2.b = 40;
+        s1.display();                     //displaying value of a of object s1
+        System.out.println(s1.a);         //printing value of a of object s1
+
+
+    }
+}
+
+OUTPUT:
+
+eg:
+class Sample {
+    int a;
+    int b;
+
+    void sum()                                   //void used when we dont expect any value in return..just printing only..if we use  public int sum() then use                                                          return inside it for returning some values 
+    {
+        System.out.println(a+b);
+    }
+    void difference()
+    {
+        System.out.println(a-b);
+    }
+}
+class Hello {
+    public static void main(String hey[]) {                //string ar is not necessary..we can give any name..
+        Sample s1 = new Sample();
+        Sample s2 = new Sample();
+        s1.a = 10;
+        s1.b = 20;
+        s2.a = 30;
+        s2.b = 40;
+        s1.sum();
+        s2.difference();
+    }
+}
+
+----METHOD OVERLOADING
+means we have many methods with the same name but the parameters are different.
+
+class Calculator
+{
+    int num;                                   //instance variable
+    public int add(int a,int b)               // a,b local variable
+    {
+        int result = a+b;
+        return result;
+    }
+    public int add(int a,int b,int c)            //two add methods but different parameters
+    {
+        int result = a+b+c;
+        return result;
+    }
+}
+
+public class demo
+{
+    public static void main(String ar[])
+    {
+        Calculator obj =new Calculator();
+        int res= obj.add(3,4,5);                  //goes with second add
+        System.out.println(res);
+    }
+}
+
+----STACK AND HEAP
+
+In JVM we have stack and heap memory.
+STACK:- arranged one above the other and follows first in first out algorithm.Every method will have one stack....main is also a method....so for the below example 2 methods and 2 stacks will be there(add and main)
+***In stack data is stored as key and value ..key will be variable name and value will be variable value.
+for table add the stack will be like these:
+                                                                          101
+ADD STACK                     MAIN STACK                                 HEAP
+a   |  3                       r1 | 7                                   num=5
+b   |  4                     data | 10                                   add()
+                             obj1 | 101
+Here num doesnt belong to any of the methods add or main..so its not inside any of the stacks.if we declare inside only we put it into stack.even methodinakath just num print chythal polum it wont be in stack..
+Such INSTANCE VARIABLES go into HEAP.
+
+***HEAP:-it is open space means expandable.
+in the heap instance variable num is stored.also the method is stored without much defiinitions.heap also has an addresss say 101. this 101 is stored as value corresponding to obj1 in main stack....when obj1.a is called in the program then it looks the address 101 in heap it gets the add function from heap.there is a link btw stack and heap through this address.there can be multiple objects in heap
+
+class Calculator
+{   
+    int num=5;                                //instance variable
+    public int add(int a,int b)               //local variable
+    {
+        int result = a+b;
+        return result;
+    }
+}
+
+public class demo
+{
+    public static void main(String ar[])
+    {
+        int data =10;
+
+        Calculator obj =new Calculator();
+        int res= obj.add(3,4);
+        System.out.println(res);
+    }
+}
+
+
+
+
