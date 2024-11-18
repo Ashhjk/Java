@@ -474,5 +474,180 @@ public class demo
 }
 
 
+-----ARRAY IN JAVA
+int num[] ={3,4,5}
 
+int num[] = new int[4]              //returns array with all 4 values as 0 {0,0,0,0}
+to put values
+
+num[0]=1;
+num[1]=2;
+.
+.
+.
+eg:
+public class demo {
+    public static void main(String ar[])
+    {
+        int arr[]={3,4,5};
+        System.out.println(arr[1]);
+    }
+}
+
+to print all the values in an array
+
+public class demo {
+    public static void main(String ar[])
+    {
+        int arr[]={3,4,5};
+        int i;
+
+        for(i=0;i<3;i++)
+        {
+            System.out.println(arr[i]);
+
+        }
+    }
+}
+
+
+----MULTI DIMENSIONAL ARRAY
+multiple arrays combined to get one big array
+
+declaration:  int nums[][]=new int[3][4];               // 3 internal arrays (rows) and 4 elements each(coloums)
+
+eg:
+public class demo {
+    public static void main(String ar[])
+    {
+        int i;
+        int j;
+        int nums[][]=new int[3][4];
+        for(i=0;i<3;i++)
+        {
+            for (j=0;j<=3;j++) {
+                System.out.print(nums[i][j] +" ");
+            }
+            System.out.println(" ");
+        }
+    }
+}
+
+OUTPUT:
+0 0 0 0  
+0 0 0 0                 //by default values for integer array willbe 0
+0 0 0 0  
+
+----JAGGED ARRAY
+number of elements in an array is not specified.but how many arrays are there is specified.
+int nums[][]=new int[3][]
+for each row there will be specific size.
+
+----DRAWBACKS OF ARRAY IN JAVA
+*int nums[]=new int[4]     
+this statement creates an instance variable.It is stored in heap and at that time itself it occupies 4 spaces in memory...so after this declaratiion we cant change its size.
+*array cannot store int string all at a time..but collections can
+
+-----ARRAY OBJECT
+class Student
+{
+    String name;
+    int marks;
+}
+
+public class demo {
+    public static void main(String ar[])
+    {
+        Student s1 = new Student();
+        s1.name="Ashly";
+        s1.marks=96;
+        Student s2 = new Student();
+        s2.name="Maria";
+        s2.marks=99;
+
+        Student children[]= new Student[2];
+        children[0]= s1;
+        children[1]=s2;
+        for(int i=0;i<children.length;i++)
+            System.out.println(children[i].name + ":" + children[i].marks);
+
+
+        }
+    }
+
+OUTPUT:
+Ashly:96
+Maria:99
+
+We create Student class and create objects s1,s2,s3.Then we created array children ans assigned values s1,s2 and s3 to it.
+
+----STRING IN JAVA
+class Student
+{
+    String name;
+    int marks;
+}
+
+public class demo {
+    public static void main(String ar[])
+    {
+        String obj= new String("Ashly");
+        System.out.println(obj);
+
+        }
+    }
+
+**CONCATENATION is possible with strings
+class Student
+{
+    String name;
+    int marks;
+}
+
+public class demo {
+    public static void main(String ar[])
+    {
+        String obj= new String("Ashly");
+        System.out.println(obj);
+        System.out.println(obj.concat("James"));
+        }
+    }
+
+OUTPUT:
+Ashly
+AshlyJames
+
+----JAVA STRINGS ARE IMMUTABLE
+In Java, strings are immutable, meaning that once a String object is created, its value cannot be changed. 
+eg:
+String name= new String("Ashly");
+String name=new String ("Maria");
+
+when we give like this actually the value of object name ,Ashly is not replaced by Maria.Here is how it works.
+*In the stack an object name is created and the address is given as 101 which is present in heap.
+*In heap, there will be address 101 and the value corresponding it will be Ashly.(STRING CONSTANT POOL)
+*When we assign the same object with Maria the same object points to another address 102 and in the heap corresponding to the address 102 "Maria is stored...so once created string cannot be changed.
+
+String name= new String("Ashly");
+String anothername=new String ("Ashly");
+when we give like this two objects are not created in the stack
+*it will check the string const. pool in heap and if Ashly is already there it will give the location to otherkey also.
+*both keys name and anothername points to same address 101
+
+----HOW CAN WE CREATE MUTABLE STRING?(STRING BUFFER)
+*StringBuffer sb=new StringBuffer();
+System.out.println(sb.capacity());    //OUTPUT:16
+
+By using string buffer the capacity is 16 means it provide 16 spaces for a string for future expansion.
+
+StringBuffer sb=new StringBuffer("Ashly");
+System.out.println(sb.capacity());    //OUTPUT:21
+
+capacity increased to 21.
+*StringBuffer sb=new StringBuffer("Ashly");
+sb.append(" James");
+System.out.println(sb);                 //output:Ashly James we can append string using string buffer
+
+* String str=sb.toString();
+  System.out.println(str);          //we cannot assign a string buffer to a string...so we use tostring to convert it to string and then asssign it to str.
 
