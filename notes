@@ -651,3 +651,107 @@ System.out.println(sb);                 //output:Ashly James we can append strin
 * String str=sb.toString();
   System.out.println(str);          //we cannot assign a string buffer to a string...so we use tostring to convert it to string and then asssign it to str.
 
+*we can delete a character at particular index
+sb.deleteCharAt(2);
+System.out.println(sb);
+
+*we can insert striing at particular index
+sb.insert(2,"and");
+System.out.println(sb);                //output:Asandhly James
+
+*we can extract substring by giving start and stop index
+*we can set length of the string
+*we can set minimum capacity using ensurecapacity()
+
+----STATIC VARIABLE IN JAVA
+
+class Phone
+{
+    String brand;
+    int price;
+    String name;
+    public void display()
+    {
+        System.out.println(brand +":"+ price +":"+ name);
+    }
+}
+
+public class demo {
+    public static void main(String ar[])
+    {
+        Phone obj1=new Phone();
+        Phone obj2=new Phone();
+        obj1.brand="Apple";
+        obj1.price=1500;
+        obj1.name="Smartphone";
+        obj2.brand="Samsung";
+        obj2.price=1700;
+        obj2.name="Smartphone";
+        obj1.display();
+        obj2.display();
+
+
+        }
+    }
+
+OUTPUT:
+Apple:1500:Smartphone
+Samsung:1700:Smartphone
+//Using static variable means if we make change to the value of that variable related to any one of the objects then auomatically it is applicable for all objects.It can be used for variables having same values.
+*Here smart phone is common name so making that instance variable static .
+eg:
+class Phone
+{
+    String brand;
+    int price;
+    static String name;                       //made it static
+    public void display()
+    {
+        System.out.println(brand +":"+ price +":"+ name);
+    }
+}
+
+public class demo {
+    public static void main(String ar[])
+    {
+        Phone obj1=new Phone();
+        Phone obj2=new Phone();
+        obj1.brand="Apple";
+        obj1.price=1500;
+        Phone.name="Smartphone";            //after making it static we have to refer it using class name not object name so use Phone
+        obj2.brand="Samsung";
+        obj2.price=1700;
+        Phone.name="Smartphone";
+        obj1.name="smart";                     //we changed obj1 only to smart but both objects value changes.
+        obj1.display();
+        obj2.display();                      
+        }
+    }
+*OUTPUT:
+Apple:1500:smart
+Samsung:1700:smart
+
+----STATIC METHOD
+in front of the method/function there will be the keyword static.Usingstatic method we call call anywhwere from the class also no need of creating the object.
+
+eg:
+for the above example
+public void display()
+    {
+        System.out.println(brand +":"+ price +":"+ name);
+    }
+public static void show()                      //static method
+    {
+        System.out.println("in static method");
+    }
+
+if we use static method then we can call it directly using class name.
+Phone.display();  ----- here display is not static method so it cannot be called using classname phone.returns no value.we need to create object of phone and the call.
+Phone.show(); ---------show is a static method so it can be called using the class name.returns "in a static method"
+*public class Demo{
+ public static void main(string ar[])
+if we dont use static in main method then we  have to create an object of demo to call it.ain is the start of execution of program.If execution is not started then we cant create an object of demo.it will be a dead lock
+
+----ENCAPSULATION
+Data is kept hidden for limited acccess by users.data is kept inside boxes .These boxes are variables.No one can see the data .if they want, they have to ask and we can decide whether to tell it or not. So use private keyword with instance variable.So we can access that only within that class.
+eg:brain has all the info like our name age etc...it is kept private ...when someone asks age brain thinks whether i need to share or not.If yes brain can share it only by methods speaking writing etc...So public methods are defined inside the class.
