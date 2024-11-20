@@ -893,3 +893,188 @@ public class demo {
 *we can specify the assignment values in private string itself ...but its not a good practice.
 *we can write database connections inside constructor
 
+----NAMING CONVENTION
+Camel case- more readable
+class,interface - Start with capital letter
+variables,methods - small letter
+constants - full caps PI
+constructor - Human()  //first letter capital becaue a class name and last round bracket because a method
+
+---- INHERITANCE
+IF WE have a class and it has so many methods.Suppose we create class calculator with basic methods(add(),substractetc).We also create another subclass for setting up more advanced features.It will coontain  all the methods in parent class and some extra features.This is called child class.
+*keyword extends
+*child class (sub class) and parent class(super class)
+*sub class inherits parent class means it inheritts all the features of the parent class
+
+----Single Inheritance
+
+In single inheritance, a subclass inherits from a single superclass.
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("The dog barks.");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.eat(); // Method inherited from Animal
+        d.bark(); // Method of Dog class
+    }
+}
+
+
+Multilevel Inheritance
+
+In multilevel inheritance, a class is derived from a class that is already derived from another class. This forms a chain of inheritance.
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("The dog barks.");
+    }
+}
+
+class Puppy extends Dog {          //puppy has all the features of dog and animal
+    void weep() {
+        System.out.println("The puppy weeps.");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Puppy p = new Puppy();
+        p.eat(); // Method inherited from Animal
+        p.bark(); // Method inherited from Dog
+        p.weep(); // Method of Puppy class
+    }
+}
+
+----MULTIPLE INHERITANCE NOT POSSIBLE IN JAVA
+EG:
+class A
+{
+public void show()
+}
+class B
+{
+public void show()
+}
+class C
+{
+obj.show();      //if class c inheruts both A and B , there will be a confusion when the object try to call the show () method .It can use the show from either a or                    b .So in order to avoid this ambiguity , java doesnt support multiple inheritance.
+}
+
+
+----THIS AND SUPER METHOD 
+
+class A
+{
+    public A ()                         //constructor A
+    {
+        System.out.println("in constructor A");
+    }
+}
+class B extends A 
+{
+    public B ()                       //constructor B
+    {
+        System.out.println("in constructor B");
+    }
+}
+public class demo
+{
+    public static void main(String ar[])
+    {
+        B obj=new B();
+
+    }
+}                                 OUTPUT:  in constructor A
+                                           in constructor B
+
+
+***when we create B which inherits A  and creates the object using class B ,constructors in both child class and parent class are called.
+***when we create B which inherits A and creates the object using class B, and we pass a parameter in object then parametrized constructor in  child class and         normal constructor in parent class are called.
+
+class A
+{
+    public A ()
+    {
+        System.out.println("in constructor A");
+    }
+    public A (int a)         //parametrized constructor
+    {
+        System.out.println("in  parametrised constructor A");
+    }
+}
+class B extends A
+{
+    public B ()
+    {
+        System.out.println("in constructor B");
+    }
+    public B (int b)    //parametrized constructor
+    {
+        System.out.println("in  parametrised constructor B");
+    }
+}
+public class demo
+{
+    public static void main(String ar[])
+    {
+        B obj=new B(5);    //passing parameter 5
+
+    }
+}         OUTPUT:in constructor A
+                 in  parametrised constructor B
+
+
+The reason is SUPER
+
+every constructor in java has a method even if we dont mention, its called super().
+first statement of every constructor is super().
+class A
+{
+    public A ()
+    {
+        super();
+        System.out.println("in constructor A");
+    }
+    public A (int a)         //parametrized constructor
+    {
+        super();
+        System.out.println("in  parametrised constructor A");
+    }
+}
+class B extends A
+{
+    public B ()
+    {
+        super();
+        System.out.println("in constructor B");
+    }
+    public B (int b)    //parametrized constructor
+    {
+        super();
+        System.out.println("in  parametrised constructor B");
+    }
+}
+public class demo
+{
+    public static void main(String ar[])
+    {
+        B obj=new B(5);
+
+    }
+}
+while passing the argument to the object it goes to the parametrized constructor of B THEN FIRST IT EXECUTES SUPER()  means it goes to normal constructor of A and executes it then it comes to print "in constructor B".
