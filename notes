@@ -731,8 +731,9 @@ public class demo {
 Apple:1500:smart
 Samsung:1700:smart
 
+
 ----STATIC METHOD
-in front of the method/function there will be the keyword static.Usingstatic method we call call anywhwere from the class also no need of creating the object.
+in front of the method/function there will be the keyword static.Usingstatic method we can call method anywhwere from the class also no need of creating the object.
 
 eg:
 for the above example
@@ -754,4 +755,141 @@ if we dont use static in main method then we  have to create an object of demo t
 
 ----ENCAPSULATION
 Data is kept hidden for limited acccess by users.data is kept inside boxes .These boxes are variables.No one can see the data .if they want, they have to ask and we can decide whether to tell it or not. So use private keyword with instance variable.So we can access that only within that class.
-eg:brain has all the info like our name age etc...it is kept private ...when someone asks age brain thinks whether i need to share or not.If yes brain can share it only by methods speaking writing etc...So public methods are defined inside the class.
+eg:brain has all the info like our name age etc...it is kept private ...when someone asks age brain thinks whether i need to share or not.If yes brain can share it only by methods speaking writing etc...So public methods are defined inside the class to access these private variables.
+
+class human
+{
+    private String name="Ashly";  //private keyword used to hide data
+    private int age=23;
+
+    public String getName()       //to access these data we need to use public method and have to specify the return datatype string int etc.
+    {
+         return name;
+    }
+    public  int getAge()
+    {
+        return age;
+    }
+}
+
+public class demo {
+    public static void main(String ar[])
+    {
+        human obj=new human();
+        System.out.println(obj.getName() + obj.getAge());    //we have to access private variables using the publicc methods...obj.getName()...we wont get data                                                                                                                                                  using obj.name
+        }
+    }
+
+OUTPUT: Ashly23
+***Here we give values directly to variables.rather than this we can use set method to set the values for the objects.
+class human
+{
+    private String name;
+    private int age;
+
+    public String getName()
+    {
+         return name;
+    }
+    public void setName(String a)               //we use void because it does not return any value.we have to passs the argument
+    {
+        name=a;
+    }
+    public  int getAge()
+    {
+        return age;
+    }
+    public void setAge(int a)                 //use void
+    {
+        age=a;
+    }
+}
+
+public class demo {
+    public static void main(String ar[])
+    {
+        human obj=new human();
+        obj.setName("Ashly");             //Ashly is passed to variable a and is assigned to name
+        obj.setAge(23);
+        System.out.println(obj.getName() + obj.getAge());
+        }
+    }class human
+{
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        name = name;
+    }
+
+----GETTERS AND SETTERS 
+as given above to access private variables.getName() ,setName().
+while using constructor provided by the ide it gives something like this.
+public void setName(String name) {
+        this.name = name;       //this keyword came
+    }
+
+----THIS KEYWORD
+THIS is used when the name of instance variable and paremeter are both same.This is used to resolve the ambiguity.
+*The keyword is used to refer the instance variable.
+class human
+{
+    private String name;   //instance variable name 
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {       //parameter name
+        this.name = name;
+    }
+
+----CONSTRUCTOR
+It looks like the method itself but we dont have to specify the data type.
+*used when we have to give certain values by default to variables
+*constructor name = class name
+*does not return anything
+*everytime an object is created it calls the constructor
+
+class human
+{
+    private String name;
+    private int age;
+    public human()   //constructor name human
+    {
+        name="Ashly";
+        age= 23;
+    }
+
+    public String getName()
+    {
+         return name;
+    }
+    public void setName(String a)
+    {
+        name=a;
+    }
+    public  int getAge()
+    {
+        return age;
+    }
+    public void setAge(int a)
+    {
+        age=a;
+    }
+}
+
+public class demo {
+    public static void main(String ar[])
+    {
+        human obj=new human();
+        System.out.println(obj.getName() + obj.getAge());
+        }
+    }
+
+*we can specify the assignment values in private string itself ...but its not a good practice.
+*we can write database connections inside constructor
+
