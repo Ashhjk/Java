@@ -960,7 +960,7 @@ public class Demo {
     }
 }
 
-----MULTIPLE INHERITANCE NOT POSSIBLE IN JAVA
+----------------MULTIPLE INHERITANCE NOT POSSIBLE IN JAVA--------------------
 EG:
 class A
 {
@@ -976,7 +976,7 @@ obj.show();      //if class c inheruts both A and B , there will be a confusion 
 }
 
 
-----THIS AND SUPER METHOD 
+---------THIS AND SUPER METHOD -------------
 
 class A
 {
@@ -1077,4 +1077,112 @@ public class demo
 
     }
 }
-while passing the argument to the object it goes to the parametrized constructor of B THEN FIRST IT EXECUTES SUPER()  means it goes to normal constructor of A and executes it then it comes to print "in constructor B".
+while passing the argument to the object it goes to the parametrized constructor of B THEN FIRST IT EXECUTES SUPER()  means it goes to normal constructor of A because super() dosent have any parameter inside it,and executes it then it comes to print "in constructor B".
+* if  we need to print parametrized constructor of superclass then write parameter inside super of class B.
+
+public B (int b)    //parametrized constructor
+    {
+        super(b);   //FROM HERE it goes to call para constructor of A
+        System.out.println("in  parametrised constructor B");
+    }
+}              OUTPUT:   in  parametrised constructor A
+                         in  parametrised constructor B
+****why using super for the parent class ,it does not inherit from any class.because by default every parent class extends from object class which is there even if not mentioned.
+class A extends Object
+so when calling super()of class A ,it calls the constructor of object class
+
+----------METHOD OVERRIDING----------
+Method Overriding occurs in object-oriented programming when a subclass provides a specific implementation for a method that is already defined in its parent class. The overridden method in the subclass should have the same name, return type, and parameters as the method in the parent class...
+In method overloading name of method is only same parameters are different.
+
+eg:class Calc
+{
+    public int add(int n1,int n2)
+    {
+        return n1+n2;
+    }
+}
+class AdvCalc extends Calc
+{
+    public int add(int n1,int n2)
+    {
+        return n1+n2+1;
+    }
+}
+public class demo
+{
+    public static void main (String ar[])
+    {
+        AdvCalc obj= new AdvCalc();
+        System.out.println(obj.add(3,5));
+    }
+}           
+
+OUTPUT: 9   //one add method overrides other
+
+---------PACKAGES IN JAVA----------
+
+Like a folder package is where we store files.
+* a package can be part of another package like a folder inside a folder
+* a good idea to keep our classes inside a package.
+* calc and advcalc inside a package
+*if we put those classes under a package then to use it the main application then we have to import it 
+*if we use any inbuilt things in java it belongs to a package.so we have to import that.eg:if we use ArrayList in our program we have to import it.
+  import java.utils.ArrayList;
+*System.out. :- System is also inbuilt and part of a package lang. But we dont have to import it every time because it is imported by default. to import eveything in a package, we can use *.
+eg:
+import java.lang.System;
+import java.lang.*;
+
+------------POLYMORPHISM------------
+means many behaviour.At different instances the same reference will have different behaviour.Like we have different names in our house(mother sister wife etc)..similarly we have different behaviour also.
+* 2types:
+---compile time polymorphism(early time polymorphism) :- if the behaviour is defined at compile time .If we know which method us executed only at compile time
+                                                          eg:overloading
+---run time polymorphism(late time polymorphism :-if the behaviour is defined at run time .If we know which method is executed only at run time
+                                                         eg:overriding- u dont know what method is called because same name and same parameters
+                                 
+---------FINAL KEYWORD----------
+*its like const keyword.The moment we use the final keyword the value of the variable is made const ..cannot change after that.
+*final keyword can be used with a variable, method or class
+--when we make a variable final --
+public class demo
+{
+    public static void main (String ar[])
+    {
+         final int num=8;
+         num=7;   //this throw an error because int num is set const.so cant change its value
+         System.out.println(num);
+    }
+}
+
+--when we make a class final --
+final class Calc
+{
+}
+class AdvCalc extends Calc //this throws an error because once the class is made final then stopping the inheritance
+
+---when we make our method final then no one can override it ---
+public  final void show()
+
+--------TYPECASTING--------
+
+means we are converting the datataype of a  variable from one to another forcefully .By default if we assign double value to int it is not supported.So we have to explicitly mention it.
+double num =4.5;
+int i= num;//this throws error. so we have to explicitly specify them.
+correct:
+double num =4.5;
+int i=(int) num;//we will loose .5
+
+* 
+public class demo
+{
+    public static void main (String ar[])
+    {
+         A obj= new B();//upcasting
+         obj.show();
+    }
+}
+
+--------WRAPPER CLASS---------
+Primitive datatypes int,double,float are there in java .These are not objects so we can say that java is not fuly object oriented as these primitive datatypes are not objects.
