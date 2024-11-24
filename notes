@@ -1185,4 +1185,20 @@ public class demo
 }
 
 --------WRAPPER CLASS---------
-Primitive datatypes int,double,float are there in java .These are not objects so we can say that java is not fuly object oriented as these primitive datatypes are not objects.
+Primitive datatypes int,double,float are there in java .These are not objects so we can say that java is not fuly object oriented as these primitive datatypes are not objects.So java is not 100% object oriented.100 percent means everything has to be objects but thees primitive datatypes are not.They are variable.
+*There are classes for every primitive data type. 
+*For int we have class Integer.
+*For long we have Long.
+********AUTOBOXING*********
+This way of converting primitive into objects is called AUTOBOXING.
+
+ *To convert variable int into integer object we have to write,
+int data=20;
+Integer i= new Integer(data);   //now i is 20 also , i is an object of integer class.This way of converting primitive into objects is called AUTOBOXING.
+
+********UNBOXING*********
+getting primitive value from object
+
+Integer i = new Integer(20);
+datatypeValue():
+int j =i.int
