@@ -1197,8 +1197,142 @@ int data=20;
 Integer i= new Integer(data);   //now i is 20 also , i is an object of integer class.This way of converting primitive into objects is called AUTOBOXING.
 
 ********UNBOXING*********
-getting primitive value from object
+getting the value of the datatype from the object.
+Integer i = new Integer(10);
+datatypeValue();
+int j=i.intValue();..//now j=10
 
-Integer i = new Integer(20);
-datatypeValue():
-int j =i.int
+
+---------------INTERFACES ----------------
+In some situations we may have abstract class having only abstract methods and no other methods.In that case instead of creating abstract class we can create an 
+Interface instead.
+**Interface is not a class.
+**By default all the methods inside an interface is public abstract .So no need of using that keyword.
+**Interface just shows us the design but does not implement it.
+**We use another class and it IMPLEMENT first class
+eg: without using interface
+
+abstract class A                                                   interface A
+{                                                                  {
+       public abstract void show();                    =>               void show();
+       public abstract void config();                                   void config();
+}                                                                  }
+
+
+
+*********************
+interface A
+{
+    int age= 23;   //final and static
+    String name= "Ashly";
+
+    void show();
+    void config();
+
+}
+class B implements A
+{
+    public void show()
+    {
+        System.out.println("in show");
+    }
+    public void config()
+    {
+        System.out.println("in config");
+    }
+}
+
+public class demo
+{
+    public static void main(String ar[])
+    {
+        A obj;
+        obj=new B();
+        obj.show();
+        obj.config();
+        System.out.println(A.age);
+    }
+}
+
+OUTPUT:
+
+in show
+in config
+23
+
+*Here we create interface and we instantiate variables and methods in it.For classB we are just implementing A only not extending.B is used to define methods.SoVariable name cant be changed in B also .Therefore it is said that the variables age and name are final.T
+*Variables aree final so it need to be assigned with the value inside A itself.
+*Also variables are static means using the name of the object we can access the values .eg:System.out.println(A.age);
+
+----------------ENUM-----------------
+enum (short for "enumeration") is a special data type used to define a collection of constant values. Enums are used when you need a predefined set of values that a variable can take, such as days of the week, directions, or states of an object.
+** we can store a list of named constants inside enum and call it when needed.
+** we store them inside class as objects
+**
+enum Status   //Status is the class name
+{
+    Running,Failed,Pending,Progress        //these are named constants which are like objects of class status
+}
+
+public class demo
+{
+    public static void main(String ar[])
+    {
+        Status s = Status.Running; //similar to int i =5....type Status,reference name s,assigning object running
+        System.out.println(s);
+    }
+}
+**OUTPUT:Running
+**All these objects are also numbered starting from 0 .
+**Number can be seen using ordinal
+**System.out.println(s.ordinal());   //gives output 0
+
+-------------ANNOTATION------------
+Annotations in Java are metadata (data about data) that provide additional information to the compiler, tools, or frameworks.Suppplement to the compiler or metadata .Sometimes to interact with complier to supply some extra data.
+*@Override
+Ensures that a method is overriding a method in the superclass.(ensures that the parent class methos and child class method are the same.no spelling mistake.if there is mistake it shows error.
+If the method does not correctly override, the compiler throws an error.
+eg:
+class Parent {
+    public void display() {
+        System.out.println("Parent class method");
+    }
+}
+
+class Child extends Parent {
+    @Override
+    public void display() {
+        System.out.println("Child class method");
+    }
+}
+
+**
+@Deprecated
+
+    Marks a method or class as deprecated, signaling that it should not be used because it may be removed in future versions.
+    Tools may show warnings when this annotation is used.
+@Deprecated
+public void oldMethod() {
+    System.out.println("This method is deprecated");
+}
+
+**
+ @SuppressWarnings
+
+    Instructs the compiler to suppress specific warnings.
+    Common parameters: "unchecked", "deprecation", "rawtypes"
+@SuppressWarnings("unchecked")
+public void uncheckedExample() {
+    List list = new ArrayList(); // Raw type warning suppressed
+    list.add("Hello");
+}
+
+**
+
+@SafeVarargs
+
+    Suppresses unsafe warnings for a method using varargs (variable-length arguments).
+**
+ @FunctionalInterface
+
+    Indicates that an interface is a functional interface (an interface with exactly one abstract method)
