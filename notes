@@ -1399,3 +1399,77 @@ Bye
 ** Then it prints bye
 **good to put critical statments only in try block
 **Catch block is executed only in case of exception
+
+
+-----------Buffered reader and scanner------------
+
+-------------THREAD----------------
+software os and hardware are there.
+**If we want to run multiple procesees at the same time we use multi tasking or multi threading.
+**music,games,writing etc at the same time.
+**many processes share common resources
+
+------------------Multiple threads--------------
+Without using thread
+class A
+{
+    public void show()
+    {
+        for(int i=0;i<4;i++)
+        {
+            System.out.println("hi");
+        }
+    }
+}
+class B {
+    public void show() {
+        for (int i = 0; i < 4; i++) {
+            System.out.println("hello");
+        }
+    }
+}
+public class demo
+{
+    public static void main(String ar[])
+    {
+       A obj1 =new A();
+       B obj2=new B();
+       obj1.show();
+       obj2.show();
+    }
+}
+
+
+OUTPUT: all hi printed then coming back to main function and then all hellos printed
+**************with using thread
+class A extends Thread //use extends thread
+{
+    public void run() //use run to execute thread
+    {
+        for(int i=0;i<100;i++)
+        {
+            System.out.println("hi");
+        }
+    }
+}
+class B extends Thread //use extends thread
+{
+    public void run()   //use run
+    {
+        for (int i = 0; i < 100; i++) {
+            System.out.println("hello");
+        }
+    }
+}
+public class demo
+{
+    public static void main(String ar[])
+    {
+       A obj1 =new A();
+       B obj2=new B();
+       obj1.start(); //use start once strted it began to run the method
+       obj2.start();
+    }
+}
+
+if we write the program in such a way if there are 100s of hi and hello to print in parallel scheduler use an algorithm for time division method....so both willl execute in parallel.Some hi printed some hello printed,after that again it prints for that allocated time.Threads executed in parallel...Wont wait for one process to complete. 
