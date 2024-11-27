@@ -833,7 +833,7 @@ public void setName(String name) {
     }
 
 ----THIS KEYWORD
-THIS is used when the name of instance variable and paremeter are both same.This is used to resolve the ambiguity.
+THIS is used when the name of instance variable and parameter are both same.This is used to resolve the ambiguity.
 *The keyword is used to refer the instance variable.
 class human
 {
